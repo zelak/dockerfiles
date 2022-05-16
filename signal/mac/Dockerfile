@@ -48,5 +48,6 @@ RUN git clone https://github.com/signalapp/Signal-Server.git ~/Signal-Server
 RUN ln -s ~/Signal-Server/service/config/sample.yml ~/Signal-Server/service/config/config.yml
 
 ENTRYPOINT service ssh start > /dev/null 2>&1; \
+           echo "cd Signal-Server"; \
            echo "mvn clean install -DskipTests"; \
            /bin/bash
